@@ -17,8 +17,8 @@ class App {
         // results.testOperation.csv -> testOperation
         String tableName = csvFileName.split("\\.")[-2]
 
-        CSVReader reader = new CSVReader(new FileReader(csvFileName))
-        BufferedWriter sqlOutput = new BufferedWriter(new FileWriter(csvFileName.replace('csv', 'sql')))
+        CSVReader reader = new CSVReader(new BufferedReader(new FileReader(csvFileName), 1024 * 1024))
+        BufferedWriter sqlOutput = new BufferedWriter(new FileWriter(csvFileName.replace('csv', 'sql')), 1024 * 1024)
 
         String[] titles = reader.readNext()
 
