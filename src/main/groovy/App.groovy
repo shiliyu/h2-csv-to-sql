@@ -36,6 +36,8 @@ class App {
             }
         }
         sqlOutput.flush()
+        sqlOutput.close()
+        reader.close()
     }
 
     static String buildSql(String tableName, String[] titles, String[] columns) {
